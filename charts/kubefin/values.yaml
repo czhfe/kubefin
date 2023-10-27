@@ -26,6 +26,22 @@ kubefin-agent:
   #   cpu: 500m
   #   memory: 1500Mi
 
+  podMonitor:
+    # Create PodMonitor Resource for scraping metrics using PrometheusOperator, set to true to create a Pod Monitor Entry
+    enabled: false
+    # The name of the label on the target service to use as the job name in prometheus.
+    jobLabel: ""
+    # Interval at which metrics should be scraped
+    interval: 15s
+    # The timeout after which the scrape is ended
+    scrapeTimeout: ""
+    # Metrics relabelings to add to the scrape endpoint
+    metricRelabelings: []
+    # RelabelConfigs to apply to samples before scraping
+    relabelings: []
+    # Additional labels
+    additionalLabels: {}
+
   otel:
     enabled: true
 
